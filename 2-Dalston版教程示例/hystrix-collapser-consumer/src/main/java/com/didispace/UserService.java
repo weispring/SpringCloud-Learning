@@ -25,6 +25,11 @@ public class UserService {
     @Autowired
     RestTemplate restTemplate;
 
+    /**
+     * 合并请求
+     * @param id
+     * @return
+     */
     @HystrixCollapser(
             scope = com.netflix.hystrix.HystrixCollapser.Scope.GLOBAL,
             batchMethod = "findByIds",
