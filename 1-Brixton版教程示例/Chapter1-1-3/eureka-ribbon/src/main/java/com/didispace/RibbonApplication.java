@@ -10,10 +10,11 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableCircuitBreaker
+@EnableCircuitBreaker//开启断路器
 public class RibbonApplication {
 
 	@Bean
+	//开启负载均衡
 	@LoadBalanced
 	RestTemplate restTemplate() {
 		return new RestTemplate();

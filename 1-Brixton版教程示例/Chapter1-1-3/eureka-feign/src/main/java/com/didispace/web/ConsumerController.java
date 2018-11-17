@@ -14,6 +14,9 @@ public class ConsumerController {
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public Integer add() {
+        /*if (true){
+            throw new RuntimeException("测试fallback ");//此处异常不会触发fallback
+        }*/
         return computeClient.add(10, 20);
     }
 
