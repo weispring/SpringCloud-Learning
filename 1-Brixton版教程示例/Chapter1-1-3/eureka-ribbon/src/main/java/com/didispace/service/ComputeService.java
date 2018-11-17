@@ -20,6 +20,9 @@ public class ComputeService {
         return restTemplate.getForEntity("http://compute-service/add?a=10&b=20", String.class).getBody();
     }
 
+    //实现负载均衡 http://compute-service/add?a=10&b=20,通过服务名选择服务
+
+
     public String addServiceFallback() {
         return "error";
     }
