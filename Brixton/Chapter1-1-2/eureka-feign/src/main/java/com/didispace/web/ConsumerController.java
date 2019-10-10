@@ -14,6 +14,7 @@ public class ConsumerController {
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public Integer add() {
+        //出现超时会熔断
         return computeClient.add(10, 20);
     }
 

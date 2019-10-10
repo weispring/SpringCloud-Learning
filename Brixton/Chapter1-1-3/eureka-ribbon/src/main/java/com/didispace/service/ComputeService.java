@@ -14,9 +14,10 @@ public class ComputeService {
 
     @HystrixCommand(//此方法必须在一个类里面
     commandProperties = {
-        @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "10000"),
-        @HystrixProperty(name = "execution.timeout.enabled", value = "false")},fallbackMethod = "addServiceFallback")
+        @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "5000"),
+        @HystrixProperty(name = "execution.timeout.enabled", value = "true")},fallbackMethod = "addServiceFallback")
     public String addService() {
+        //execution.timeout.enabled 为true超时才会进入方法 addServiceFallback
         return restTemplate.getForEntity("http://compute-service/add?a=10&b=20", String.class).getBody();
     }
 

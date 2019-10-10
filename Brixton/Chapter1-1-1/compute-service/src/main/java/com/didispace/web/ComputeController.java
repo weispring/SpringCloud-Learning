@@ -9,12 +9,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.lang.reflect.InvocationTargetException;
 import java.net.URI;
-import java.net.URL;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/test")
 public class ComputeController {
 
     private final Logger logger = Logger.getLogger(getClass());
@@ -24,11 +23,10 @@ public class ComputeController {
     private DiscoveryClient client;
 
     @RequestMapping(value = "/add" ,method = RequestMethod.GET)
-    public Integer add(@RequestParam Integer a, @RequestParam Integer b) {
+    public Integer add(@RequestParam Integer a, @RequestParam Integer b) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
        /* if (true){
             throw new RuntimeException("测试fallback ");
         }*/
-
         ServiceInstance instance = client.getLocalServiceInstance();
         URI url = instance.getUri();
         Map<String,String> map = instance.getMetadata();

@@ -14,6 +14,7 @@ public class ConsumerController {
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String add() {
+        //springCloud中才能已服务名代替ip和port
         return restTemplate.getForEntity("http://COMPUTE-SERVICE/add?a=10&b=20", String.class).getBody();
     }
 
