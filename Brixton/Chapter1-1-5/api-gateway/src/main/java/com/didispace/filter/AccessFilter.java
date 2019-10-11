@@ -28,6 +28,11 @@ public class AccessFilter extends ZuulFilter  {
 
     @Override
     public Object run() {
+        /**
+         * 1.服务路由
+         * 2.权限校验
+         * 3.短路器
+         */
         RequestContext ctx = RequestContext.getCurrentContext();
         HttpServletRequest request = ctx.getRequest();
 

@@ -10,6 +10,11 @@ import org.springframework.cloud.config.server.EnableConfigServer;
 @SpringBootApplication
 public class Application {
 
+
+	/**
+	 * 动态更新服务的属性
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		new SpringApplicationBuilder(Application.class).web(true).run(args);
 	}
