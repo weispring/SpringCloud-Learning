@@ -31,6 +31,10 @@ public class DcController {
         @Autowired
         RestTemplate restTemplate;
 
+        /**
+         * 服务降级 线程隔离
+         * @return
+         */
         @HystrixCommand(fallbackMethod = "fallback")
         public String consumer() {
             return restTemplate.getForObject("http://eureka-client/dc", String.class);
